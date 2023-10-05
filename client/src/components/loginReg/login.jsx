@@ -20,7 +20,7 @@ function Login() {
 
       const data = response.data;
       if (!data.user) {
-        window.alert("Email does not exist or login failed. Please try again.");
+        window.alert("Email does no exist or login failed. Please try again.");
         return;
       }
       localStorage.setItem("token", data.user);

@@ -11,7 +11,7 @@ function Reg() {
   const handleRegister = async () => {
     try {
       if (!email.includes("@") || !email.endsWith("gmail.com")) {
-        window.alert("Enter a valid Gmail address");
+        window.alert("Entera valid Gmail address");
         return;
       }
 

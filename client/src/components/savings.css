@@ -7,7 +7,8 @@
   align-items: center;
   height: 100vh;
 }
-
+.container {
+}
 .title-div {
   margin-top: 20px;
 }

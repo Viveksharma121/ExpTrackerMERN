@@ -74,7 +74,7 @@ function Balance({ totalIncome, totalExpense }) {
           setHasAddedSavingsToday(true);
         }
       } else {
-        console.log("token laa pahele");
+        console.log("token laaa pahele");
       }
     } catch (error) {
       console.log(error);

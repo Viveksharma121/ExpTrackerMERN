@@ -1,6 +1,7 @@
 import { createStore } from "redux";
 const saving = parseInt(localStorage.getItem("savings")) || 0;
 console.log(typeof saving);
+console.log("c");
 const reducerFn = (state = { savings: saving }, action) => {
   if (action.type === "ADD") {
     console.log("call");

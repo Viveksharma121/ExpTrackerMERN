@@ -1,6 +1,7 @@
 import React from "react";
 
 function IncomeExp({ totalIncome, totalExpense }) {
+  console.log("her");
   const totalExp = -1 * totalExpense;
   return (
     <div className="inc-exp-container">

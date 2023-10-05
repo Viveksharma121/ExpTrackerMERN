@@ -5,6 +5,7 @@ import IncomeExp from "./IncomeExp";
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 function History() {
+  console.log("his");
   const savings = useSelector((state) => state.savings);
   const dispatch = useDispatch();
   const [transactions, setTransactions] = useState([]);

@@ -12,6 +12,7 @@ import Reg from "./components/loginReg/Reg";
 import Login from "./components/loginReg/login";
 
 function App() {
+  console.log("");
   return (
     <>
       <BrowserRouter>

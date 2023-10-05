@@ -5,6 +5,7 @@ import "./savings.css";
 import axios from "axios";
 
 function Savings() {
+  console.log("h");
   useEffect(() => {
     fetchSavings();
   }, []);
