@@ -1,0 +1,70 @@
+/* savings.css */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.title-div {
+  margin-top: 20px;
+}
+
+.amount-container {
+  background: #e2f0cb;
+  padding: 10px;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+.savings-amount {
+  font-size: 24px;
+  color: green;
+  font-weight: bold;
+}
+
+.list li.plus {
+  border-right: 5px solid #2ecc71;
+}
+
+.list li.minus {
+  border-right: 5px solid #c0392b;
+}
+
+.transaction-history {
+  margin-top: 20px;
+}
+
+.transaction-text {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #555;
+}
+
+input.input {
+  margin: 8px;
+  padding: 8px;
+  width: 200px; /* Set the desired width of the input box */
+  border: 2px solid #ddd; /* Add a border */
+  border-radius: 5px; /* Add some border radius */
+  background-color: #f7f7f7; /* Add a light background color */
+  color: #333; /* Set text color */
+  transition: border-color 0.3s, box-shadow 0.3s; /* Add smooth transitions */
+}
+
+.savings-btn {
+  /* margin-top: 5px; */
+  margin: 5px;
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.savings-btn:hover {
+  background-color: #45a049;
+}
