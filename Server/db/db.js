@@ -5,11 +5,14 @@ const db = async () => {
     //connect mongo
     mongoose.set("strictQuery", false);
     mongoose
-      .connect("mongodb://127.0.0.1:27017/ExpenseTracker", {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        bufferCommands: false,
-      })
+      .connect(
+        "mongodb+srv://vivekksharma369:F2PkGfYuV3GZ74SA@cluster0.q3rqubc.mongodb.net/?retryWrites=true&w=majority",
+        {
+          useNewUrlParser: true,
+          useUnifiedTopology: true,
+          bufferCommands: false,
+        }
+      )
       .then(() => {
         console.log("Db connected");
       })

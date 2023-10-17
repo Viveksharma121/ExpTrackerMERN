@@ -26,7 +26,7 @@ function Login() {
       localStorage.setItem("token", data.user);
       console.log(data.user);
       console.log(localStorage);
-      // history("/");
+      history("/");
     } catch (error) {
       console.error("Error during login:", error);
     }
