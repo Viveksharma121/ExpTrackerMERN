@@ -16,8 +16,8 @@ const db = async () => {
       .then(() => {
         console.log("Db connected");
       })
-      .catch(() => {
-        console.error("Failed to connect db");
+      .catch((error) => {
+        console.error("Failed to connect db" + error);
       });
   } catch (error) {
     console.log("DB Connection failed" + error);
