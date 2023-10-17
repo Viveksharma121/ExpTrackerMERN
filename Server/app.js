@@ -32,7 +32,9 @@ db()
   .catch((error) => {
     console.log("Failed to connect" + error);
   });
-
+app.get("/", (req, res) => {
+  res.json("Hello hi ");
+});
 app.delete("/transactions", async (req, res) => {
   try {
     const result = await Transaction.deleteMany({});
