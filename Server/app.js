@@ -8,9 +8,9 @@ app.use(cors());
 app.use(express.json());
 const PORT = 5000;
 
-app.get("/", (req, res) => {
-  res.send("Hello world");
-});
+// app.get("/", (req, res) => {
+//   res.send("Hello world");
+// });
 
 const pro_route = require("./routes/transaction");
 const savings_route = require("./routes/IncomeExp");
