@@ -37,25 +37,25 @@ db()
 app.get("/", (req, res) => {
   res.json("Hello hi namaste");
 });
-app.post("/reg", async (req, res) => {
-  try {
-    const { username, email, password } = req.body;
-    const salt = 10;
-    const hashedPass = await bcrypt.hash(password, salt);
+// app.post("/reg", async (req, res) => {
+//   try {
+//     const { username, email, password } = req.body;
+//     const salt = 10;
+//     const hashedPass = await bcrypt.hash(password, salt);
 
-    const newUser = Users({
-      username,
-      email,
-      password: hashedPass,
-    });
-    await newUser.save();
+//     const newUser = Users({
+//       username,
+//       email,
+//       password: hashedPass,
+//     });
+//     await newUser.save();
 
-    res.status(201).json({ message: "User created succesfully " });
-  } catch (error) {
-    console.log(error + "error");
-    res.status(500).json({ message: error });
-  }
-});
+//     res.status(201).json({ message: "User created succesfully " });
+//   } catch (error) {
+//     console.log(error + "error");
+//     res.status(500).json({ message: error });
+//   }
+// });
 app.delete("/transactions", async (req, res) => {
   try {
     const result = await Transaction.deleteMany({});
