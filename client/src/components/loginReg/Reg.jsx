@@ -19,7 +19,7 @@ function Reg() {
         method: "post",
         url: "https://exp-tracker-mern.vercel.app/api/savings/reg",
         data: {
-          name: username,
+          username,
           email,
           password,
         },

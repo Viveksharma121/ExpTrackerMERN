@@ -21,7 +21,7 @@ const { error } = require("console");
 // Routes
 app.use("/api/products", pro_route);
 app.use("/api/savings", savings_route);
-app.use("/api/savings", user_route);
+app.use("/api/user", user_route);
 app.use("/api/save", allsavings);
 db()
   .then(() => {
