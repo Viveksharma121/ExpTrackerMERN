@@ -16,7 +16,6 @@ const pro_route = require("./routes/transaction");
 const savings_route = require("./routes/IncomeExp");
 const user_route = require("./routes/Auth");
 const allsavings = require("./routes/Savings");
-const { error } = require("console");
 
 // Routes
 app.use("/api/products", pro_route);
