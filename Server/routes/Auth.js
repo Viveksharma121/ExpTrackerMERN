@@ -18,7 +18,8 @@ router.post("/reg", async (req, res) => {
 
     res.status(201).json({ message: "User created succesfully " });
   } catch (error) {
-    res.status(500).json({ message: " Some error occured" });
+    console.log(error);
+    res.status(500).json({ message: "chutiya" });
   }
 });
 
