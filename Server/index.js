@@ -1,6 +1,9 @@
 const express = require("express");
 const cors = require("cors");
 const { db } = require("./db/db");
+const bcrypt = require("bcryptjs");
+const { Users } = require("../db/db");
+const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const { Transaction } = require("./db/db");
 const app = express();
@@ -33,6 +36,25 @@ db()
   });
 app.get("/", (req, res) => {
   res.json("Hello hi ");
+});
+app.post("/reg", async (req, res) => {
+  try {
+    const { username, email, password } = req.body;
+    const salt = 10;
+    const hashedPass = await bcrypt.hash(password, salt);
+
+    const newUser = Users({
+      username,
+      email,
+      password: hashedPass,
+    });
+    await newUser.save();
+
+    res.status(201).json({ message: "User created succesfully " });
+  } catch (error) {
+    console.log(error + "error");
+    res.status(500).json({ message: error });
+  }
 });
 app.delete("/transactions", async (req, res) => {
   try {
