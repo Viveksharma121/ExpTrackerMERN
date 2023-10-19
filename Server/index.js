@@ -35,7 +35,7 @@ db()
     console.log("Failed to connect" + error);
   });
 app.get("/", (req, res) => {
-  res.json("Hello hi ");
+  res.json("Hello hi namaste");
 });
 app.post("/reg", async (req, res) => {
   try {
