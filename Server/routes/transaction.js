@@ -70,7 +70,7 @@ router.post("/", async (req, res) => {
       console.log(expense.Expense + "Exp");
     }
     //if all good save transaction
-    await transaction.save({ maxTimeMS: 30000 });
+    await transaction.save();
 
     res.status(201).json(transaction);
   } catch (error) {
