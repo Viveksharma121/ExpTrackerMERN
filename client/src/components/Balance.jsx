@@ -59,7 +59,7 @@ function Balance({ totalIncome, totalExpense }) {
       if (token) {
         const response = await axios({
           method: "post",
-          url: "http://localhost:5000/api/save/save",
+          url: "https://exp-tracker-mern.vercel.app/api/save/save",
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",

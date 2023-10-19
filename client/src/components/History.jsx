@@ -48,12 +48,15 @@ function History() {
     try {
       await new Promise((resolve) => setTimeout(resolve, 500));
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:5000/api/products", {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await fetch(
+        "https://exp-tracker-mern.vercel.app/api/products",
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       const data = await response.json();
       console.log(data);
 
@@ -104,12 +107,15 @@ function History() {
 
   const deleteTransaction = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/products/${id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        `https://exp-tracker-mern.vercel.app/api/products/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       if (response.ok) {
         const updatedTransactions = transactions.filter(

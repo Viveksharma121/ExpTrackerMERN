@@ -17,7 +17,7 @@ function Savings() {
       if (token) {
         const response = await axios({
           method: "GET",
-          url: "http://localhost:5000/api/save",
+          url: "https://exp-tracker-mern.vercel.app/api/save",
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -46,14 +46,17 @@ function Savings() {
     try {
       const token = localStorage.getItem("token");
       // const userId=getId
-      const response = await fetch("http://localhost:5000/api/save/save", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ saving: +increase }),
-      });
+      const response = await fetch(
+        "https://exp-tracker-mern.vercel.app/api/save/save",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ saving: +increase }),
+        }
+      );
       const data = await response.json();
       console.log(data);
     } catch (error) {
@@ -76,14 +79,17 @@ function Savings() {
     try {
       const token = localStorage.getItem("token");
       // const userId=getId
-      const response = await fetch("http://localhost:5000/api/save/save", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ saving: amount < 0 ? +amount : -amount }),
-      });
+      const response = await fetch(
+        "https://exp-tracker-mern.vercel.app/api/save/save",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ saving: amount < 0 ? +amount : -amount }),
+        }
+      );
       const data = await response.json();
       console.log(data);
     } catch (error) {
