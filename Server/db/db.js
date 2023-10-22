@@ -4,8 +4,7 @@ const db = async () => {
   try {
     //connect mongo
     mongoose.set("strictQuery", false);
-    mongoose
-
+    await mongoose
       .connect(
         "mongodb+srv://vivekksharma369:2n0ueCrilfVTtust@cluster0.jmgm8et.mongodb.net/?retryWrites=true&w=majority",
         {
