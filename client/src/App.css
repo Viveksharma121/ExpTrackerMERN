@@ -1,4 +1,4 @@
-/* @import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
 
 :root {
   --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -156,7 +156,7 @@ input[type="number"] {
   }
 }
 
-/* Transaction component 
+/* Transaction component */
 .text {
   font-weight: bold;
   margin-bottom: 10px;
@@ -200,7 +200,7 @@ input[type="number"] {
   cursor: pointer;
   display: inline-block;
   font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
-  /* padding: 2px 5px; 
+  /* padding: 2px 5px; */
   text-align: center;
   text-decoration: none;
   transition: all 250ms;
@@ -240,7 +240,7 @@ input[type="number"]:focus {
   border-color: #4caf50;
 }
 
-/* History component 
+/* History component */
 .list {
   list-style-type: none;
   padding: 0;
@@ -261,4 +261,4 @@ input[type="number"]:focus {
 
 .expense {
   color: red;
-} */
+}
