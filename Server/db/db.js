@@ -7,7 +7,7 @@ const db = async () => {
     mongoose
 
       .connect(
-        "mongodb://vivekksharma369:F2PkGfYuV3GZ74SA@ac-a8ixbpn-shard-00-00.q3rqubc.mongodb.net:27017,ac-a8ixbpn-shard-00-01.q3rqubc.mongodb.net:27017,ac-a8ixbpn-shard-00-02.q3rqubc.mongodb.net:27017/?ssl=true&replicaSet=atlas-hcfrhx-shard-0&authSource=admin&retryWrites=true&w=majority",
+        "mongodb+srv://vivekksharma369:2n0ueCrilfVTtust@cluster0.jmgm8et.mongodb.net/?retryWrites=true&w=majority",
         {
           useNewUrlParser: true,
           useUnifiedTopology: true,

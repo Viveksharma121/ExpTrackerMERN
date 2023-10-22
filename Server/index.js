@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const { db } = require("./db/db");
 const bcrypt = require("bcryptjs");
-const { Users } = require("../Server/db/db");
+const { Users } = require("./db/db");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const { Transaction } = require("./db/db");
@@ -23,7 +23,7 @@ const allsavings = require("./routes/Savings");
 // Routes
 app.use("/api/products", pro_route);
 app.use("/api/savings", savings_route);
-// app.use("/api/user", user_route);
+app.use("/api/user", user_route);
 app.use("/api/save", allsavings);
 db()
   .then(() => {
@@ -37,25 +37,34 @@ db()
 app.get("/", (req, res) => {
   res.json("Hello hi namaste");
 });
-app.post("/reg", async (req, res) => {
+app.get("/users", async (req, res) => {
   try {
-    const { username, email, password } = req.body;
-    const salt = 10;
-    const hashedPass = await bcrypt.hash(password, salt);
-
-    const newUser = Users({
-      username,
-      email,
-      password: hashedPass,
-    });
-    await newUser.save();
-
-    res.status(201).json({ message: "User created succesfully " });
+    const allUsers = await Users.find(); // Retrieve all users from the "Users" collection
+    res.status(200).json(allUsers); // Send the user data as a JSON response
   } catch (error) {
-    console.log(error + "error");
-    res.status(500).json({ message: error });
+    console.log(error);
+    res.status(500).json({ error: "Internal server error" });
   }
 });
+// app.post("/reg", async (req, res) => {
+//   try {
+//     const { username, email, password } = req.body;
+//     const salt = 10;
+//     const hashedPass = await bcrypt.hash(password, salt);
+
+//     const newUser = Users({
+//       username,
+//       email,
+//       password: hashedPass,
+//     });
+//     await newUser.save();
+
+//     res.status(201).json({ message: "User created succesfully " });
+//   } catch (error) {
+//     console.log(error + "error");
+//     res.status(500).json({ message: error });
+//   }
+// });
 app.delete("/transactions", async (req, res) => {
   try {
     const result = await Transaction.deleteMany({});
