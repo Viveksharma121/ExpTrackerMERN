@@ -17,10 +17,10 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Main />} />
+          <Route path="/main" element={<Main />} />
           <Route path="/savings" element={<Savings />} />
           <Route path="/register" element={<Reg />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Login />} />
         </Routes>
         <Savingbutton />
       </BrowserRouter>
