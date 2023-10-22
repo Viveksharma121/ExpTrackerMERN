@@ -8,12 +8,13 @@ router.get("/", async (req, res) => {
     const token = req.headers.authorization?.split(" ")[1];
     const decodedToken = jwt.decode(token, "secret123");
     const userId = decodedToken.id;
+
     const transactions = await Transaction.find({ userId });
     res.json(transactions);
     console.log(transactions + " hh");
   } catch (error) {
     console.log(error);
-    res.status(500).json({ error: "Server error" });
+    res.status(500).json({ error: "Server error" + error });
   }
 });
 
@@ -42,25 +43,40 @@ router.post("/", async (req, res) => {
 
     //balance schema
     let balanceRecord = await Balance.findOne();
-
+    console.log(transaction.Amt);
     // transaction amount>=0 means income
     if (transaction.Amt >= 0) {
       //income from income schema
       let income = await IncomeSch.findOne();
       //update income
-      income.Income += transaction.Amt;
+      if (!income) {
+        // Create a new income document if it doesn't exist
+        income = new IncomeSch({ Income: transaction.Amt });
+      } else {
+        // Update income
+        income.Income += transaction.Amt;
+      }
       await income.save();
       //update balance
-      balanceRecord.Balance += transaction.Amt;
+      if (!balanceRecord) {
+        balanceRecord = new Balance({ Balance: transaction.Amt });
+      } else balanceRecord.Balance += transaction.Amt;
       await balanceRecord.save();
       //debugging
       console.log(balanceRecord.Balance);
       console.log(income.Income + "income");
     } else {
       //expense
+      transaction.Amt = Math.abs(transaction.Amt);
       let expense = await Exp.findOne();
       //update exp
-      expense.Expense += Math.abs(transaction.Amt);
+      if (!expense) {
+        // Create a new income document if it doesn't exist
+        expense = new Exp({ Expense: transaction.Amt });
+      } else {
+        // Update income
+        expense.Expense += transaction.Amt;
+      }
       await expense.save();
       //update balance
       balanceRecord.Balance -= Math.abs(transaction.Amt);
