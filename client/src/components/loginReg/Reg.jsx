@@ -29,7 +29,7 @@ function Reg() {
       if (response.status === 200) {
         const data = response.data;
         console.log(data);
-        history("/login");
+        history("/");
       } else if (response.status === 409) {
         window.alert("Email id already exists");
         return;
