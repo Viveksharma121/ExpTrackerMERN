@@ -17,7 +17,7 @@ function Reg() {
 
       const response = await axios({
         method: "post",
-        url: "https://exp-tracker-mern.vercel.app/reg",
+        url: "https://exp-tracker-mern.vercel.app/api/user/reg",
         data: {
           username,
           email,
