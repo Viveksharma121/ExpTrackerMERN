@@ -27,7 +27,7 @@ function Reg() {
 
       console.log(response.data);
       console.log(response.status);
-      if (response.status === 200) {
+      if (response.status === 201) {
         const data = response.data;
         console.log(data);
         history("/");
