@@ -1,13 +1,13 @@
-import "./App.css";
-import Savings from "./components/Savings";
 import {
   BrowserRouter,
-  Routes,
-  Route,
   Link,
+  Route,
+  Routes,
   useLocation,
 } from "react-router-dom";
+import "./App.css";
 import Main from "./components/Main";
+import Savings from "./components/Savings";
 import Reg from "./components/loginReg/Reg";
 import Login from "./components/loginReg/login";
 
@@ -28,14 +28,14 @@ function App() {
   );
 }
 
-function Savingbutton(params) {
+function Savingbutton() {
   const location = useLocation();
   if (location.pathname === "/savings") {
     return null;
   }
   return (
     <Link to="/savings">
-      <button>Savings</button>
+      <button> Go to Savings</button>
     </Link>
   );
 }
