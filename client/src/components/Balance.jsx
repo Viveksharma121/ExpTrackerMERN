@@ -1,7 +1,5 @@
 import axios from "axios";
-import React from "react";
-import { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
 
 function Balance({ totalIncome, totalExpense }) {
   const [hasAddedSavingsToday, setHasAddedSavingsToday] = useState(
@@ -97,7 +95,7 @@ function Balance({ totalIncome, totalExpense }) {
             </>
           )}
         </h2>
-        <button onClick={Addsavings}>but</button>
+        <button onClick={Addsavings}>Add balance to savings </button>
       </div>
     </div>
   );
