@@ -109,6 +109,8 @@ function History() {
 
   const deleteTransaction = async (id) => {
     try {
+      console.log(id);
+      console.log("delete called ");
       const response = await fetch(
         `https://exp-tracker-mern.vercel.app/api/products/${id}`,
         {

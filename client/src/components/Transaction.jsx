@@ -19,14 +19,17 @@ function Transaction({ onAddTransaction }) {
       try {
         const token = localStorage.getItem("token");
         // const userId=getId
-        const response = await fetch("http://localhost:5000/api/products", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify({ text, Amt }),
-        });
+        const response = await fetch(
+          "https://exp-tracker-mern.vercel.app/api/products",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({ text, Amt }),
+          }
+        );
 
         const data = await response.json();
         console.log(data);
