@@ -1,38 +1,36 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 
 function Transaction({ onAddTransaction }) {
-  console.log("final");
   const [text, settext] = useState("");
-  const [Amt, setAmt] = useState("");
+  const [Amt, setAmt] = useState(0);
   const handleTextChange = (e) => {
     settext(e.target.value);
     console.log(text);
   };
   const handleAmtChange = (e) => {
-    setAmt(e.target.value);
+    setAmt(parseFloat(e.target.value));
   };
   const AddTransaction = async (e) => {
     e.preventDefault();
 
     if (Amt !== "") {
+      // console.log(Amt);
+
       try {
         const token = localStorage.getItem("token");
         // const userId=getId
-        const response = await fetch(
-          "https://exp-tracker-mern.vercel.app/api/products",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-            body: JSON.stringify({ text, Amt }),
-          }
-        );
+        const response = await fetch("http://localhost:5000/api/products", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ text, Amt }),
+        });
 
         const data = await response.json();
-        onAddTransaction(data.text, data.Amt);
+        console.log(data);
+        onAddTransaction(data.text, parseFloat(data.Amt));
         settext("");
         setAmt("");
       } catch (error) {

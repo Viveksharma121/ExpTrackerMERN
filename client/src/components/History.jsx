@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import Transaction from "./Transaction";
-import Balance from "./Balance";
-import IncomeExp from "./IncomeExp";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
+import Balance from "./Balance";
+import IncomeExp from "./IncomeExp";
+import Transaction from "./Transaction";
 function History() {
   console.log("his");
   const savings = useSelector((state) => state.savings);
@@ -94,6 +94,8 @@ function History() {
   }, [transactions]);
 
   const addTransaction = (text, Amt) => {
+    Amt = parseFloat(Amt);
+    console.log(Amt + "add tran func");
     const newTransaction = {
       id: uuidv4(),
       text,

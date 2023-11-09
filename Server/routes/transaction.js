@@ -21,6 +21,7 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const { text, Amt } = req.body;
+    console.log(Amt);
     const token = req.headers.authorization?.split(" ")[1];
     const decodedToken = jwt.decode(token, "secret123");
     console.log(decodedToken.id + "d");
@@ -67,7 +68,7 @@ router.post("/", async (req, res) => {
       console.log(income.Income + "income");
     } else {
       //expense
-      transaction.Amt = Math.abs(transaction.Amt);
+      transaction.Amt = -Math.abs(transaction.Amt);
       let expense = await Exp.findOne();
       //update exp
       if (!expense) {
