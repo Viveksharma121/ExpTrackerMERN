@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 function Transaction({ onAddTransaction }) {
   const [text, settext] = useState("");
-  const [Amt, setAmt] = useState(0);
+  const [Amt, setAmt] = useState("");
   const handleTextChange = (e) => {
     settext(e.target.value);
     console.log(text);
