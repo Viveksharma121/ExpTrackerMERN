@@ -12,7 +12,10 @@
 .title-div {
   margin-top: 20px;
 }
-
+.link {
+  color: inherit;
+  text-decoration: none;
+}
 .amount-container {
   background: #e2f0cb;
   padding: 10px;

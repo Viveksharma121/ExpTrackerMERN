@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import "./savings.css";
 
 function Savings() {
@@ -143,7 +144,13 @@ function Savings() {
 
       <br />
 
-      <button>Go Back</button>
+      <button>
+        {
+          <Link to="/main" className="link">
+            Go Back
+          </Link>
+        }
+      </button>
     </div>
   );
 }
