@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useState } from "react";
-import "./savings.css";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import "./savings.css";
 
 function Savings() {
   console.log("h");
@@ -47,9 +46,9 @@ function Savings() {
       const token = localStorage.getItem("token");
       // const userId=getId
       const response = await fetch(
-        "https://exp-tracker-mern.vercel.app/api/save/save",
+        "https://exp-tracker-mern.vercel.app/api/save/dec",
         {
-          method: "POST",
+          method: "PUT",
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
@@ -80,9 +79,9 @@ function Savings() {
       const token = localStorage.getItem("token");
       // const userId=getId
       const response = await fetch(
-        "https://exp-tracker-mern.vercel.app/api/save/save",
+        "https://exp-tracker-mern.vercel.app/api/save/dec",
         {
-          method: "POST",
+          method: "PUT",
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,

@@ -65,4 +65,30 @@ router.post("/save", async (req, res) => {
   }
 });
 
+router.put("/dec", async (req, res) => {
+  try {
+    const token = req.headers.authorization?.split(" ")[1];
+    const decodedToken = jwt.decode(token, "secret123");
+    if (!decodedToken || !decodedToken.id) {
+      return res.status(500).json({ message: "Unauthoried" });
+    }
+    const userId = decodedToken.id;
+    const lastBalance = await SavingsSch.findOne(
+      { userId: userId },
+      {},
+      { sort: { date: -1 } }
+    );
+    let saving = req.body.saving;
+    saving += lastBalance.saving;
+    const updatedBalance = await SavingsSch.findOneAndUpdate(
+      { userId: userId },
+      { $set: { saving: saving } },
+      { new: true }
+    );
+    res.json(updatedBalance);
+  } catch (error) {
+    res.status(501).json(error);
+  }
+});
+
 module.exports = router;
