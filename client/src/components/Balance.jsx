@@ -43,8 +43,10 @@ function Balance({ totalIncome, totalExpense }) {
   useEffect(() => {
     // console.log(balance + " b");
     // const lastResetDate = localStorage.getItem("lastResetDate");
-    if (hasAddedSavingsToday == false && s > 0) {
+    if (hasAddedSavingsToday === false && s > 0) {
       Addsavings(s);
+      localStorage.setItem("hasSavingsToday", "true");
+      setHasAddedSavingsToday(true);
     }
     console.log(hasAddedSavingsToday);
   }, [totalIncome, s]);
@@ -68,8 +70,7 @@ function Balance({ totalIncome, totalExpense }) {
         });
         const data = response.data;
         if (data) {
-          localStorage.setItem("hasSavingsToday", "true");
-          setHasAddedSavingsToday(true);
+          delAll();
         }
       } else {
         console.log("token laaa pahele");
@@ -77,6 +78,18 @@ function Balance({ totalIncome, totalExpense }) {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const delAll = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      if (token) {
+        const response = await axios.delete(
+          "https://exp-tracker-mern.vercel.app/transactions"
+        );
+        console.log(response);
+      }
+    } catch (error) {}
   };
 
   return (
