@@ -108,7 +108,7 @@ function Balance({ totalIncome, totalExpense }) {
             </>
           )}
         </h2>
-        <button onClick={Addsavings}>Add balance to savings </button>
+        <button onClick={() => Addsavings(s)}>Add balance to savings </button>
       </div>
     </div>
   );
